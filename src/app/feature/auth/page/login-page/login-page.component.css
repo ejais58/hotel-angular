@@ -12,6 +12,7 @@
     width: 100%;
     box-shadow: 0 3px 3px 3px rgb(0, 0, 0, 0.2);
     border-radius: 3px;
+    
   }
   
   .example-full-width {
@@ -23,9 +24,10 @@
     margin: 20px;
   }
   
-  button {
-    margin-top: 10px;
+  .btn-login{
+    margin-top: 25px;
   }
+
   
   h2{
     margin: 40px;
