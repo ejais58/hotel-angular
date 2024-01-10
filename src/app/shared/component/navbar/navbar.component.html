@@ -1,0 +1,27 @@
+<mat-toolbar class="navbar">
+    
+    <span class="nav-title">Hotel</span>
+    <span class="example-spacer"></span>
+
+    <mat-icon class="btn-login" [matMenuTriggerFor]="logoutMenu">logout</mat-icon>
+    <mat-menu #logoutMenu="matMenu">
+        <button mat-menu-item>Perfil</button>
+        <button mat-menu-item>Cerrar Session</button>
+    </mat-menu>
+
+    <mat-icon *ngIf="role==='admin'" [matMenuTriggerFor]="AdminMenu">menu</mat-icon>
+    <mat-menu #AdminMenu="matMenu">
+        <button mat-menu-item>Agregar Recepcionista</button>
+        <button mat-menu-item>Contacto</button>
+        <button mat-menu-item>Acerca de</button>
+    </mat-menu>
+
+    <mat-icon *ngIf="role==='reception'" [matMenuTriggerFor]="ReceptionMenu">menu</mat-icon>
+    <mat-menu #ReceptionMenu="matMenu">
+        <button mat-menu-item>Contacto</button>
+        <button mat-menu-item>Acerca de</button>
+    </mat-menu>
+
+    
+
+</mat-toolbar>
