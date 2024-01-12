@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from '../../../auth/service/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -10,18 +11,16 @@ import { Observable } from 'rxjs';
   styleUrl: './login-page.component.css'
 })
 export class LoginPageComponent implements OnInit{
-  constructor(private httpClient: HttpClient, private fb: FormBuilder, private router: Router){}
+  constructor(private httpClient: HttpClient, private fb: FormBuilder, private router: Router, private authService: AuthService){}
   
-
-  base_url: string = 'http://localhost:3000';
-
   miFormulario: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
   })
 
+  
   ngOnInit() {
-   
+    
   }
 
 
@@ -37,10 +36,9 @@ export class LoginPageComponent implements OnInit{
 
   login() {
     
-    const email = this.miFormulario.get('email')?.value;
-    const password = this.miFormulario.get('password')?.value;
-    
-    return this.httpClient.post(`${this.base_url}/auth/login`, {email,password}).subscribe((respuesta: any) =>{
+    const {email, password} = this.miFormulario.value
+
+    this.authService.login(email,password).subscribe((respuesta: any) =>{
       console.log(respuesta);
 
       if (respuesta.token) {
@@ -54,6 +52,8 @@ export class LoginPageComponent implements OnInit{
       }
       
     })
+    
+    
   }
 
   hide = true;
