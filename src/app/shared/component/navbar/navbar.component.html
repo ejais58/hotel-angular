@@ -6,7 +6,7 @@
     <mat-icon class="btn-login" [matMenuTriggerFor]="logoutMenu">logout</mat-icon>
     <mat-menu #logoutMenu="matMenu">
         <button mat-menu-item>Perfil</button>
-        <button mat-menu-item>Cerrar Session</button>
+        <button mat-menu-item (click)="logout()">Cerrar Session</button>
     </mat-menu>
 
     <mat-icon *ngIf="role==='admin'" [matMenuTriggerFor]="AdminMenu">menu</mat-icon>
