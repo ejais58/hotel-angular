@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
@@ -6,6 +6,11 @@ import { MatMenuTrigger } from '@angular/material/menu';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
+  
+  ngOnInit() {
+    
+  }
+  
   @Input() role: 'admin' | 'reception' = 'reception';
 }

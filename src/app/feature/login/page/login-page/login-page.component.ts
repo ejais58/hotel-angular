@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -9,8 +9,9 @@ import { Observable } from 'rxjs';
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit{
   constructor(private httpClient: HttpClient, private fb: FormBuilder, private router: Router){}
+  
 
   base_url: string = 'http://localhost:3000';
 
@@ -18,6 +19,11 @@ export class LoginPageComponent {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
   })
+
+  ngOnInit() {
+   
+  }
+
 
   getErrorMessage(controlName: string): string {
     const control = this.miFormulario.get(controlName);
