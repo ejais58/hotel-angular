@@ -5,10 +5,31 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
-export class HomePageComponent implements OnInit{
-  
-  ngOnInit(){
-    
+export class HomePageComponent implements OnInit {
+  token: string | null = null;
+  decodedToken: any | null = null;
+  role: 'admin' | 'reception' = 'admin';
+  ngOnInit() {
+    // Se ejecuta solo en el navegador
+    if (typeof window !== 'undefined') {
+      this.token = localStorage.getItem('token')
+
+      if (this.token) {
+        const payload = this.token.split('.')[1];
+        const decodedPayload = atob(payload);
+        
+        this.decodedToken = JSON.parse(decodedPayload);
+
+        this.role = this.decodedToken.userRole
+      }
+    }
   }
+
+
+
+
+
+
+
 
 }
