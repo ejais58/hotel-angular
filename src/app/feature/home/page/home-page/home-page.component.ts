@@ -27,6 +27,8 @@ export class HomePageComponent implements OnInit {
 
         if (this.role === 'admin') {
           this.router.navigate(['home/admin'])
+        } else if (this.role === 'reception') {
+          this.router.navigate(['home/reception'])
         }
       }
     }
