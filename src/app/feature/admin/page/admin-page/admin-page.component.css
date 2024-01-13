@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
+    justify-content: space-around; /* Espaciado uniforme entre los elementos */
+}
+
+.card-container {
+    flex: 0 0 calc(33.33% - 20px); /* Calcula el ancho para tener tres tarjetas por línea */
+    width: 300px;
+    height: 300px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.matcad {
+    display: flex;
+    width: 350px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 3px 3px rgb(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.matcad:hover{
+    transform: scale(1);
+    box-shadow: 0 4px 4px 4px rgb(0, 0, 0, 0.3);
+}

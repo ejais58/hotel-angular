@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent implements OnInit {
+
+  constructor(private router: Router) {}
   token: string | null = null;
   decodedToken: any | null = null;
   role: 'admin' | 'reception' = 'admin';
@@ -21,6 +24,10 @@ export class HomePageComponent implements OnInit {
         this.decodedToken = JSON.parse(decodedPayload);
 
         this.role = this.decodedToken.userRole
+
+        if (this.role === 'admin') {
+          this.router.navigate(['home/admin'])
+        }
       }
     }
   }
