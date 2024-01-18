@@ -15,4 +15,27 @@ export class AuthService {
   login(email: string, password: string): Observable<object> {
     return this.httpClient.post(`${this.base_url}/auth/login`, {email,password})
   }
+
+  //valida si el usuario esta logueado (uso en guard)
+  loggedIn() {
+    return !!localStorage.getItem('token')
+  }
+
+  logout() {
+    localStorage.removeItem('token')
+  }
+
+
+  decodeToken(token: string) {
+    const payload = token.split('.')[1];
+    const decodedPayload = atob(payload);
+        
+    const decodedToken = JSON.parse(decodedPayload);
+
+    const role = decodedToken.userRole
+
+    return role
+  }
+
+  
 }
