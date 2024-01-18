@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../auth/service/auth.service';
 
 @Component({
   selector: 'app-home-page',
@@ -8,23 +9,18 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
   token: string | null = null;
   decodedToken: any | null = null;
   role: 'admin' | 'reception' = 'admin';
   ngOnInit() {
-    // Se ejecuta solo en el navegador
+    //Se ejecuta solo en el navegador
     if (typeof window !== 'undefined') {
       this.token = localStorage.getItem('token')
 
       if (this.token) {
-        const payload = this.token.split('.')[1];
-        const decodedPayload = atob(payload);
         
-        this.decodedToken = JSON.parse(decodedPayload);
-
-        this.role = this.decodedToken.userRole
-
+        this.role = this.authService.decodeToken(this.token)
         if (this.role === 'admin') {
           this.router.navigate(['home/admin'])
         } else if (this.role === 'reception') {
