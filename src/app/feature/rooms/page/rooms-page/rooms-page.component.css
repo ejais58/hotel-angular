@@ -1,0 +1,52 @@
+
+.container-table{
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+      margin: 10px;
+      padding: 50px;
+}
+ 
+
+ th{
+    text-align: center;
+ }
+
+ td{
+    text-align: center;
+    
+ }
+
+ .available {
+    color: rgb(44, 187, 44); 
+}
+
+.occupied{
+    color: red;
+}
+
+.btn-edit{
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+.btn-edit:hover{
+    transform: scale(1);
+    box-shadow: 0 4px 4px 4px rgb(0, 0, 0, 0.1);
+}
+
+.btn-delete{
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: rgb(221, 37, 37);
+    transition: transform 0.3s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+.btn-delete:hover{
+    transform: scale(1);
+    box-shadow: 0 4px 4px 4px rgb(0, 0, 0, 0.1);
+}
