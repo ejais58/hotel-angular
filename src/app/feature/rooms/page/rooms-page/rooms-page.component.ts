@@ -10,7 +10,7 @@ import { Room } from '../../../../models/room.inteface';
 export class RoomsPageComponent implements OnInit {
 
   data: Room[] = [];
-  displayedColumns: string[] = ['id_room', 'room_number', 'room_price', 'room_status', 'actions'];
+  displayedColumns: string[] = ['id_room', 'room_number', 'room_price', 'room_vip', 'room_status', 'actions'];
 
   constructor(private homeService: HomeService) {}
 
@@ -22,7 +22,9 @@ export class RoomsPageComponent implements OnInit {
     this.homeService.getRooms().subscribe((result: any) =>{
       if(result.data){
 
-        this.data = result.data
+        this.data = result.data;
+        
+        
       }
     })
   }

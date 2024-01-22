@@ -2,30 +2,35 @@
     <table mat-table [dataSource]="data" class="mat-elevation-z8 demo-table" >
         
         <ng-container matColumnDef="id_room">
-          <th mat-header-cell *matHeaderCellDef> id </th>
+          <th mat-header-cell *matHeaderCellDef> N° de cuarto </th>
           <td mat-cell *matCellDef="let item"> {{ item.id_room }} </td>
         </ng-container>
       
         <ng-container matColumnDef="room_number">
-          <th mat-header-cell *matHeaderCellDef> Number rooms </th>
+          <th mat-header-cell *matHeaderCellDef> N° de camas </th>
           <td mat-cell *matCellDef="let item"> {{ item.room_number }} </td>
         </ng-container>
       
         <ng-container matColumnDef="room_price">
-          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <th mat-header-cell *matHeaderCellDef> Precio </th>
           <td mat-cell *matCellDef="let item"> $ {{ item.room_price }} </td>
         </ng-container>
       
         <ng-container matColumnDef="room_status">
-            <th mat-header-cell *matHeaderCellDef> status </th>
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
             <td mat-cell *matCellDef="let item" [ngClass]="{'available': item.room_status === 'disponible', 'occupied': item.room_status === 'ocupado'}"> {{ item.room_status }} </td>
         </ng-container>
         
+        <ng-container matColumnDef="room_vip">
+          <th mat-header-cell *matHeaderCellDef> VIP </th>
+          <td mat-cell *matCellDef="let item">{{ item.room_service && item.room_jacuzzi ? 'VIP' : 'Comun' }}</td>
+      </ng-container>
+
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let item">
               <!-- Botones -->
-              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit" class="btn-edit">edit</mat-icon>
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add" class="btn-edit">edit</mat-icon>
               <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete" class="btn-delete">delete</mat-icon>
             </td>
           </ng-container>
