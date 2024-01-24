@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AuthService } from '../../../auth/service/auth.service';
 
 @Component({
@@ -10,9 +10,17 @@ import { AuthService } from '../../../auth/service/auth.service';
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
 })
-export class LoginPageComponent implements OnInit{
-  constructor(private httpClient: HttpClient, private fb: FormBuilder, private router: Router, private authService: AuthService){}
+export class LoginPageComponent implements OnInit, OnDestroy{
+  loginSubscribe: Subscription;
+
+  constructor(private httpClient: HttpClient, private fb: FormBuilder, private router: Router, private authService: AuthService){
+    this.loginSubscribe = new Subscription();
+  }
   
+  
+ 
+  
+
   miFormulario: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
@@ -20,7 +28,7 @@ export class LoginPageComponent implements OnInit{
 
   
   ngOnInit() {
-    
+   
   }
 
 
@@ -38,7 +46,7 @@ export class LoginPageComponent implements OnInit{
     
     const {email, password} = this.miFormulario.value
 
-    this.authService.login(email,password).subscribe((respuesta: any) =>{
+    this.loginSubscribe = this.authService.login(email,password).subscribe((respuesta: any) =>{
       console.log(respuesta);
 
       if (respuesta.token) {
@@ -54,6 +62,12 @@ export class LoginPageComponent implements OnInit{
     })
     
     
+  }
+
+  ngOnDestroy(): void {
+    if (this.loginSubscribe) {
+      this.loginSubscribe.unsubscribe();
+    }
   }
 
   hide = true;

@@ -18,7 +18,8 @@ export class AuthService {
 
   //valida si el usuario esta logueado (uso en guard)
   loggedIn() {
-    return !!localStorage.getItem('token')
+    const token = !!localStorage.getItem('token');
+    return token;
   }
 
   logout() {
