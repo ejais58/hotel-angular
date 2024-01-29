@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './page/home-page/home-page.component';
 import { authGuard } from '../auth/guard/auth.guard';
+import { adminGuard } from '../auth/guard/admin.guard';
 
 const routes: Routes = [
   {
     path: 'admin',
-    loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule),
+    canActivate: [adminGuard]
   },
   {
     path: 'reception',

@@ -11,5 +11,6 @@ export const authGuard: CanActivateFn = (route, state) : Observable<boolean> | P
   if (authService.loggedIn()){
     return true
   }
+  router.navigate(['auth/login'])
   return false
 };
