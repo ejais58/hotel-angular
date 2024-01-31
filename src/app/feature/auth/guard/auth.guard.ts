@@ -9,6 +9,7 @@ export const authGuard: CanActivateFn = (route, state) : Observable<boolean> | P
   
 
   if (authService.loggedIn()){
+    debugger
     return true
   }
   router.navigate(['auth/login'])
