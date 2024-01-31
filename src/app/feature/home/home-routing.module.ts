@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule),
-    canActivate: [adminGuard]
+    //canActivate: [adminGuard]
   },
   {
     path: 'reception',
@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'rooms',
     loadChildren: () => import('../rooms/rooms.module').then(m => m.RoomsModule)
+  },
+  {
+    path: 'register-client',
+    loadChildren: () => import('../register-client/register-client.module').then(m => m.RegisterClientModule)
   }
 ];
 

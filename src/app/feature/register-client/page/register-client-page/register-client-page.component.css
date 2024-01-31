@@ -1,0 +1,66 @@
+.container-search{
+    display: flex;
+    justify-content: center;
+}
+
+.example-form-search {
+    min-width: 300px;
+    max-width: 600px;
+    width: 100%;
+    align-items: center;
+    border-radius: 3px;
+    box-shadow: 0 3px 3px 3px rgb(0, 0, 0, 0.2);
+  }
+
+.example-full-width-search {
+    flex: 1;
+    width: 300px;
+    padding-top: 20px;
+    margin-right: 20px;
+  }
+
+.btn-search{
+    width: 100px;
+    padding: 20px;  
+}
+
+.container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .example-form {
+    min-width: 300px;
+    max-width: 400px;
+    height: 550px;
+    width: 100%;
+    box-shadow: 0 3px 3px 3px rgb(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+  
+  .example-full-width {
+    width: 80%;
+  }
+  
+  form {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .btn-register{
+    margin-top: 25px;
+  }
+
+  
+  h2{
+    margin: 40px;
+    padding: 10px;
+  }
+
+
+  
+  
+ 
+  

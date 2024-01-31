@@ -1,0 +1,38 @@
+<div class="container-search">
+    <form class="example-form-search">
+        <mat-form-field class="example-full-width-search">
+          <mat-label>Search</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <button class="btn-search" mat-stroked-button color="basic" type="submit">buscar</button>
+    </form>
+</div>
+
+
+<div class="container">
+    <form class="example-form" [formGroup]="miFormulario" (ngSubmit)="register()">
+      <h2>Nuevo Cliente</h2>
+
+      <mat-form-field class="example-full-width" ngDefaultControl formControlName="firstname" required>
+        <mat-label>Nombre</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" ngDefaultControl formControlName="lastname" required>
+        <mat-label>Apellido</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" ngDefaultControl formControlName="email" required>
+        <mat-label>Email</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" ngDefaultControl formControlName="password" required>
+        <mat-label>Password</mat-label>
+        <input matInput>
+      </mat-form-field>
+      
+      <button class="btn-register" mat-stroked-button color="basic" type="submit">registrar</button>
+    </form>
+  </div>
